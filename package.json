@@ -1,0 +1,14 @@
+{
+  "name": "nodekb",
+  "version": "1.0.0",
+  "description": "simple knowladge base web app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Prince",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
