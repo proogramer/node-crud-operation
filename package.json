@@ -1,5 +1,5 @@
 {
-  "name": "nodekb",
+  "name": "node-crud-operation",
   "version": "1.0.0",
   "description": "simple knowladge base web app",
   "main": "app.js",
@@ -9,6 +9,8 @@
   "author": "Prince",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^1.19.2",
+    "pug": "^2.0.4"
   }
 }
