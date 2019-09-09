@@ -27,17 +27,20 @@ let Articles = require('./models/article');
 app.set('views',path.join(__dirname,'views'));
 app.set('view engine','pug');
 
+//middleware
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+
+//set public folder
+app.use(express.static(path.join(__dirname,'public')));
 
 
 // Home Route
 app.get('/',function(req,res){
     Articles.find({},function(err,articles){
-        console.log(articles);
         if(err){
             console.log(err);
         }else{
@@ -47,6 +50,19 @@ app.get('/',function(req,res){
             });
         }
 
+    });
+});
+
+app.get('/article/:id',function(req,res){
+    Articles.findById(req.params.id,function(err, article){
+        if(err){
+            console.log(err);
+        }else{
+            res.render('view_article',{
+                title:'View Article',
+                article:article
+            });
+        }
     });
 });
 

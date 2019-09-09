@@ -2,10 +2,23 @@ doctype html
 html
     head
         title node learning
+        link(rel='stylesheet' href='/bower-components/bootstrap/dist/css/bootstrap.css')
         body
-            block content
-            br
-            br
-            hr
-            footer
-                p Copyright &copy 2019
+            nav.navbar.navbar-expand-sm.bg-primary.navbar-dark
+                ul.navbar-nav
+                    li.nav-item.active
+                        a.nav-link(href='/') Home
+                    li.nav-item
+                        a.nav-link(href='/articles/add') Add Article
+
+            .container
+                block content
+                br
+                br
+                hr
+                footer
+                    p Copyright &copy 2019
+
+
+                script(src='/bower-components/jquery/dist/jquery.js')
+                script(src='/bower-components/bootstrap/dist/js/bootstrap.js')
