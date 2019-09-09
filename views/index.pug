@@ -2,4 +2,6 @@ extends layout
 
 block content
     h1 #{title}
-    h2 Hi world
+    ul
+        each article in articles
+            li= article.title
