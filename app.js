@@ -53,6 +53,7 @@ app.get('/',function(req,res){
     });
 });
 
+//view article
 app.get('/article/:id',function(req,res){
     Articles.findById(req.params.id,function(err, article){
         if(err){
@@ -71,7 +72,6 @@ app.get('/articles/add',function(req,res){
     res.render('add_article',{
         title:'Add Articles',
     });
-
 });
 
 app.post('/articles/add',function(req,res){
@@ -88,8 +88,52 @@ app.post('/articles/add',function(req,res){
             res.redirect('/');
         }
     })
+});
 
+// edit articles routes
+app.get('/article/edit/:id',function(req,res){
+    Articles.findById(req.params.id,function(err, article){
+        if(err){
+            console.log(err);
+        }else{
+            res.render('edit_article',{
+                title:'Edit Article',
+                article:article
+            });
+        }
+    });
+});
 
+// post edit articles routes
+app.post('/article/edit/:id',function(req,res){
+    let article = {};
+    article.title =req.body.title;
+    article.author = req.body.author;
+    article.body = req.body.body;
+
+    let query = {_id:req.params.id};
+
+    Articles.update(query,article, function(err){
+        if(err){
+            console.log(err);
+            return ;
+        }else{
+            res.redirect('/');
+        }
+    })
+});
+
+//delete article
+app.delete('/article/delete/:id',function(req,res){
+    let query = {_id:req.params.id};
+
+    Articles.remove(query,function(err){
+        if(err){
+            console.log(err);
+        }else{
+            res.send('Success');
+        }
+    });
 });
 
 //Start Server

@@ -1,22 +1,29 @@
-// Page Content
-.container
-    .row
-        // Post Content Column
-        .col-lg-8
-            // Title
-            h1.mt-4 #{article.title}
-            // Author
-            p.lead
-                | by
-                a(href='#')  #{article.author}
-            hr
-            // Date/Time
-            p Posted on January 1, 2019 at 12:00 PM
-            hr
-            // Preview Image
-            img.img-fluid.rounded(src='http://placehold.it/900x300', alt='')
-            hr
-            // Post Content
-            p.lead #{article.body}
-            hr
+extends layout
+
+block content
+
+    .container
+        .row
+            // Post Content Column
+            .col-lg-8
+                // Title
+                h1.mt-4 #{article.title}
+                // Author
+                p.lead
+                    | by
+                    a(href='#')  #{article.author}
+                hr
+                // Date/Time
+                p Posted on January 1, 2019 at 12:00 PM
+                hr
+                // Preview Image
+                img.img-fluid.rounded(src='http://placehold.it/900x300', alt='')
+                hr
+                // Post Content
+                p.lead #{article.body}
+                hr
+
+                a.btn.btn-default(href='/article/edit/'+article.id) Edit
+
+                p.btn.btn-danger.delete-article(data-id=article.id) Delete
 
