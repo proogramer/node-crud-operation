@@ -2,6 +2,9 @@ const express =require('express');
 const path = require('path');
 const mongoose =require('mongoose');
 const bodyParser = require('body-parser');
+const  { check, validationResult }  = require('express-validator');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 mongoose.connect('mongodb://localhost/node-crud-operarion');
 let db = mongoose.connection;
@@ -36,6 +39,24 @@ app.use(bodyParser.json());
 
 //set public folder
 app.use(express.static(path.join(__dirname,'public')));
+
+//express sesssion middleware
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+
+}));
+
+//express session message
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+    res.locals.messages = require('express-messages')(req, res);
+    next();
+});
+
+// Express Validator Middleware
+
 
 
 // Home Route
@@ -74,20 +95,33 @@ app.get('/articles/add',function(req,res){
     });
 });
 
-app.post('/articles/add',function(req,res){
-    let article = new Articles();
-    article.title =req.body.title;
-    article.author = req.body.author;
-    article.body = req.body.body;
+app.post('/articles/add',[check('title', "your custom error message").isEmpty()], function(req,res){
 
-    article.save(function(err){
-        if(err){
-            console.log(err);
-            return ;
-        }else{
-            res.redirect('/');
-        }
-    })
+    //get errors
+    const errors = validationResult(req);
+    if (errors) {
+        res.render('add_article',{
+            title:'Add Article',
+            errors:errors
+        });
+    }else{
+        let article = new Articles();
+        article.title =req.body.title;
+        article.author = req.body.author;
+        article.body = req.body.body;
+
+        article.save(function(err){
+            if(err){
+                console.log(err);
+                return ;
+            }else{
+                req.flash('success','Article added succesfully');
+                res.redirect('/');
+            }
+        })
+    }
+
+
 });
 
 // edit articles routes
@@ -118,6 +152,7 @@ app.post('/article/edit/:id',function(req,res){
             console.log(err);
             return ;
         }else{
+            req.flash('success','Article edit succesfully');
             res.redirect('/');
         }
     })

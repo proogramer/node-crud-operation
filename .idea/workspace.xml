@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54247ce6-2636-4a17-809e-48f5d5993c73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/edit_article.pug" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/message.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/view_article.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/view_article.pug" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Pug File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Pug File" />
       </list>
     </option>
   </component>
@@ -80,7 +79,9 @@
       <workItem from="1567933393530" duration="2298000" />
       <workItem from="1568002437864" duration="18125000" />
       <workItem from="1568044981423" duration="3842000" />
-      <workItem from="1568084719611" duration="2738000" />
+      <workItem from="1568084719611" duration="5563000" />
+      <workItem from="1568099923468" duration="5042000" />
+      <workItem from="1568106580809" duration="2201000" />
     </task>
     <servers />
   </component>

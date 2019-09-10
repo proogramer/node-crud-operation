@@ -13,6 +13,10 @@ html
                         a.nav-link(href='/articles/add') Add Article
 
             .container
+                != messages('message', locals)
+                if errors
+                    each error  in errors
+                        div(class='alert alert-danger') #{error.message}
                 block content
                 br
                 br
